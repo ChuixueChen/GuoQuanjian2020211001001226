@@ -128,7 +128,7 @@
                     tipUsername.innerHTML = `<p style="color: yellowGreen;">success</p>`;
                     return true
                 } else {
-                    tipUsername.innerHTML = `<p style="color: red;">Please input a username</p>`
+                    tipUsername.innerHTML = `<p style="color: red;">Please input a username!</p>`
                     return false
                 }
             }
@@ -185,14 +185,14 @@
             <p class="register_text">New User Registration</p>
         </div>
     </div>
-    <form action="" method="post" id="userForm">
+    <form action="${pageContext.request.contextPath}/register" method="post" id="userForm">
         <div class="middle">
             <div class="form_element">
                 <div class="middle_single">
                     <div class="middle_single_left">
                         <span class="star">*</span>
                         <span>Username：</span>
-                        <input type="text" name="" id="username" placeholder="username">
+                        <input type="text" name="username" id="username" placeholder="username">
                     </div>
                     <div class="middle_single_right" id="tipUsername">
                     </div>
@@ -201,7 +201,7 @@
                     <div class="middle_single_left">
                         <span class="star">*</span>
                         <span>Password：</span>
-                        <input type="password" name="" id="password" placeholder="password">
+                        <input type="password" name="password" id="password" placeholder="password">
                     </div>
                     <div class="middle_single_right" id="tipPassword">
                         <!-- The password consists of at least 8 characters. For your safety, you'd better use the
@@ -212,7 +212,7 @@
                     <div class="middle_single_left">
                         <span class="star">*</span>
                         <span>E-mail：</span>
-                        <input type="text" name="" id="Email" placeholder="Email">
+                        <input type="text" name="Email" id="Email" placeholder="Email">
                     </div>
                     <div class="middle_single_right" id="tipEmail">
                         <!-- Please fill in your correct email address, otherwise you cannot activate your account, which
@@ -223,8 +223,8 @@
                     <div class="middle_single_left">
                         <span class="star">*</span>
                         <span>Gender：</span>
-                        <input type="radio" name="sex" id="man" checked><label for="man">male</label>
-                        <input type="radio" name="sex" id="woman"><label for="woman">female</label>
+                        <input type="radio" name="gender" id="male" value="male" checked><label for="male">male</label>
+                        <input type="radio" name="gender" id="female" value="female"><label for="female">female</label>
                     </div>
                     <div class="middle_single_right">
                         <!-- Please choose your gender -->
@@ -234,7 +234,7 @@
                     <div class="middle_single_left">
                         <span class="star">*</span>
                         <span>Birthdate：</span>
-                        <input type="text" name="" id="Birthdate" placeholder="Date of Birth (yyyy-MM-dd)">
+                        <input type="text" name="Birthdate" id="Birthdate" placeholder="Date of Birth (yyyy-MM-dd)">
                     </div>
                     <div class="middle_single_right" id="tipBirthDate">
                         <!-- Please fill in your date of birth. The format must be "yyyy-MM-dd" -->
