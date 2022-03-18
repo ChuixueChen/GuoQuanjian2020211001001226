@@ -8,8 +8,13 @@ import javax.servlet.annotation.*;
 public class HelloServlet extends HttpServlet {
     private String message;
 
+    public HelloServlet() {
+        System.out.println("构造器");
+    }
+
     public void init() {
         message = "Hello World!";
+        System.out.println("init");
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -21,8 +26,10 @@ public class HelloServlet extends HttpServlet {
         out.println("<h1>" + message + "</h1>");
         out.println("This is my JSP homework!");
         out.println("</body></html>");
+        System.out.println("service");
     }
 
     public void destroy() {
+        System.out.println("destroy");
     }
 }
