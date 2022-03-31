@@ -54,6 +54,7 @@ public class RegisterServlet extends HttpServlet {
                 int result = preparedStatement.executeUpdate();
                 System.out.println(result);
             }
+            response.sendRedirect("login.jsp");
         } catch (SQLException e) {
             e.printStackTrace();
         }
