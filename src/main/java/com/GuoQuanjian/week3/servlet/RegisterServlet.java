@@ -15,7 +15,7 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        ServletContext servletContext = getServletContext();
+/*        ServletContext servletContext = getServletContext();
         String driver = servletContext.getInitParameter("driver");
         String url = servletContext.getInitParameter("url");
         String username = servletContext.getInitParameter("username");
@@ -26,7 +26,9 @@ public class RegisterServlet extends HttpServlet {
             System.out.println(connection);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        }
+        }*/
+        connection= (Connection) getServletContext().getAttribute("connection");
+        System.out.println(connection);
     }
 
     @Override
@@ -53,8 +55,8 @@ public class RegisterServlet extends HttpServlet {
             if (username != null || password != null || email != null || gender != null || birthdate != null) {
                 int result = preparedStatement.executeUpdate();
                 System.out.println(result);
+                response.sendRedirect("login.jsp");
             }
-            response.sendRedirect("login.jsp");
         } catch (SQLException e) {
             e.printStackTrace();
         }
