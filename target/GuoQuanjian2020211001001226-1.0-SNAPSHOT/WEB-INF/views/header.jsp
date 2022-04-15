@@ -1,7 +1,8 @@
+<%@ page import="com.GuoQuanjian.model.User" %>
 <html>
  <head>
    <title>My Online Shop</title>
-   
+
  </head>
  <body style="margin:0px;padding:0px;font-family:helvetica;">
  <table width="100%" cellpadding="0" cellspacing="0">
@@ -12,7 +13,7 @@
                             border-color:black;
                             padding:0px;
                             margin:0px;" valign="bottom">
-      
+
      <img src="logo.jpg" align="left">
      </td>
    </tr>
@@ -28,14 +29,25 @@
    - <a style="color:white;" href="productList">Product</a>
    - <a style="color:white;" href="#">FAQ</a>
    - <a style="color:white;" href="#">About</a>
-   
+
    </td>
    </tr>
    <tr height="25"><td align="right"><font size="18" color="blue">
-   Welcome,<font size="18" color="red"> Guest</font>
+   Welcome,<font size="18" color="red">
+       <%
+           User user1 = (User) session.getAttribute("user");
+            if (user1!=null){
+                out.println(user1.getUsername());
+            }else {
+                out.println("Guest");
+            }
+       %>
+   </font>
    </font></td> </tr>
   <tr height="20"><td align="right">
-   <br> <a href="#">Logout</a>
+      <% if (session.getAttribute("user")!=null){%>
+      <br> <a href="logout">Logout</a>
+      <%}%>
   <br><a href="#">My Cart</a><br/>
 <a href="register.jsp">Register Here</a>
   </td></tr>

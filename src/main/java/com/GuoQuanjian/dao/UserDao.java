@@ -44,7 +44,7 @@ public class UserDao implements IUserDao {
         preparedStatement.setString(2, user.getPassword());
         preparedStatement.setString(3, user.getEmail());
         preparedStatement.setString(4, user.getGender());
-        preparedStatement.setDate(5, (java.sql.Date) user.getBirthDate());
+        preparedStatement.setDate(5, new java.sql.Date(user.getBirthDate().getTime()));
         preparedStatement.setInt(6, user.getId());
         int result = preparedStatement.executeUpdate();
         return result;
