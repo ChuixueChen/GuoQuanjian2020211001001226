@@ -5,7 +5,11 @@
     <title>Title</title>
 </head>
 <body>
+
+
+
 <%@include file="header.jsp"%>
+
     <h1>User Info</h1>
 <%
     Cookie[] allCookies = request.getCookies();
