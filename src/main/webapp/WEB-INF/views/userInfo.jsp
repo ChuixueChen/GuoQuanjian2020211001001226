@@ -6,9 +6,8 @@
 </head>
 <body>
 
+<%@include file="header.jsp"%>}
 
-
-<%@include file="header.jsp"%>
 
     <h1>User Info</h1>
 <%

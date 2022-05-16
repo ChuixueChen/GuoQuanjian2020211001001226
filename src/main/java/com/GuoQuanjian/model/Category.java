@@ -92,19 +92,21 @@ public class Category {
         return categoryList;
     }
 
-    public static String findByCategoryId(Connection con, int categoryId) throws SQLException {
-        String sql = "select * from category where categoryId=?";
-        PreparedStatement pt = con.prepareStatement(sql);
-        pt.setInt(1, categoryId);
-        ResultSet rs = pt.executeQuery();
+    public static String findByCategoryId(Connection con, int categoryId) {
         String categoryName = null;
-        while (rs.next()) {
-            Category category = new Category();
-
-            category.setCategoryName(rs.getString("categoryName"));
+        try {
+            String sql = "select categoryName from category where categoryId=?";
+            PreparedStatement pt  = con.prepareStatement(sql);
+            pt.setInt(1, categoryId);
+            ResultSet rs = pt.executeQuery();
+            while (rs.next()) {
+                System.out.println("categoryName==>"+rs.getString("categoryName"));
+                categoryName= rs.getString("categoryName");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
         return categoryName;
     }
-
-
 }
