@@ -4,8 +4,13 @@
     <title>Title</title>
 </head>
 <body>
-    <%@include file="header.jsp"%>
-    This is my JSP page
-    <%@include file="footer.jsp"%>
+<div>I am MyJsp.jsp</div>
+<form method="post" action="MyDearJsp.jsp">
+    <%--<form method="post" action="myDearServletURL">--%>
+    name<input name="name"/><br>
+    class<input name="class"/><br>
+    Id<input name="Id"/><br>
+    <input type="submit" name="submit" value="send data to server"/>
+</form>
 </body>
 </html>
