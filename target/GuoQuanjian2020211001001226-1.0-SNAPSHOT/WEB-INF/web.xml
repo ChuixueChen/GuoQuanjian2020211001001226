@@ -41,20 +41,28 @@
            <url-pattern>/register</url-pattern>
        </servlet-mapping>-->
 
-    <!--    <servlet>
-            <servlet-name>ConfigDemoServlet</servlet-name>
-            <servlet-class>com.example.week4.servlet.ConfigDemoServlet</servlet-class>
+    <!--   <servlet>
+            <servlet-name>MyDearServlet</servlet-name>
+            <servlet-class>com.GuoQuanjian.lab1.MyDearServlet</servlet-class>
             <init-param>
                 <param-name>name</param-name>
                 <param-value>GuoQuanjian</param-value>
             </init-param>
+           <init-param>
+               <param-name>submit</param-name>
+               <param-value>Send Data to Server</param-value>
+           </init-param>
+           <init-param>
+               <param-name>class</param-name>
+               <param-value>software engineering 2020-12</param-value>
+           </init-param>
             <init-param>
                 <param-name>studentId</param-name>
                 <param-value>2020211001001226</param-value>
             </init-param>
         </servlet>
         <servlet-mapping>
-            <servlet-name>ConfigDemoServlet</servlet-name>
-            <url-pattern>/config</url-pattern>
+            <servlet-name>MyDearServlet</servlet-name>
+            <url-pattern>/MyDearServletURL</url-pattern>
         </servlet-mapping>-->
 </web-app>
