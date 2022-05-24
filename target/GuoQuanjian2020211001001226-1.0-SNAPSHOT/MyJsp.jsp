@@ -5,10 +5,9 @@
 </head>
 <body>
 <div>I am MyJsp.jsp</div>
-<form method="post" action="MyDearJsp.jsp">
-    <%--<form method="post" action="myDearServletURL">--%>
+<%--<form method="post" action="MyDearJsp.jsp">--%>
+    <form method="post" action="myDearServletURL">
     name<input name="name"/><br>
-<%--    submit<input name="submit"/><br>--%>
     class<input name="class"/><br>
     Id<input name="Id"/><br>
     <input type="submit" name="submit" value="send data to server"/>

@@ -21,7 +21,6 @@ public class AddProductServlet extends HttpServlet {
 
     public void init() {
         con = (Connection) getServletContext().getAttribute("connection");
-        System.out.println(con);
     }
 
     @Override

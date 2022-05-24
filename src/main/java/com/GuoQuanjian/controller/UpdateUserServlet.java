@@ -60,6 +60,6 @@ public class UpdateUserServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        req.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(req,resp);
+        req.getRequestDispatcher("accountDetails").forward(req,resp);
     }
 }

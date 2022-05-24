@@ -67,7 +67,7 @@ public class ProductDao implements IProductDao {
         PreparedStatement pt = con.prepareStatement(sql);
         pt.setInt(1, productId);
         ResultSet resultSet = pt.executeQuery();
-        Product product = null;
+        Product product = new Product();
         if (resultSet.next()) {
             product.setProductId(resultSet.getInt("productId"));
             product.setCategoryId(resultSet.getInt("categoryId"));
@@ -87,9 +87,9 @@ public class ProductDao implements IProductDao {
         PreparedStatement pt = con.prepareStatement(sql);
         pt.setInt(1, categoryId);
         ResultSet resultSet = pt.executeQuery();
-        List<Product> productList = null;
-        Product product = null;
+        List<Product> productList = new ArrayList<>();
         while (resultSet.next()) {
+            Product product = new Product();
             product.setProductId(resultSet.getInt("productId"));
             product.setCategoryId(resultSet.getInt("categoryId"));
             product.setProductName(resultSet.getString("productName"));
@@ -110,9 +110,9 @@ public class ProductDao implements IProductDao {
         pt.setDouble(1, minPrice);
         pt.setDouble(2, maxPrice);
         ResultSet resultSet = pt.executeQuery();
-        List<Product> productList = null;
-        Product product = null;
+        List<Product> productList = new ArrayList<>();
         while (resultSet.next()) {
+            Product product = new Product();
             product.setProductId(resultSet.getInt("productId"));
             product.setCategoryId(resultSet.getInt("categoryId"));
             product.setProductName(resultSet.getString("productName"));
@@ -152,9 +152,9 @@ public class ProductDao implements IProductDao {
         PreparedStatement pt = con.prepareStatement(sql);
         pt.setString(1, productName);
         ResultSet resultSet = pt.executeQuery();
-        List<Product> productList = null;
-        Product product = null;
+        List<Product> productList = new ArrayList<>();
         while (resultSet.next()) {
+            Product product = new Product();
             product.setProductId(resultSet.getInt("productId"));
             product.setCategoryId(resultSet.getInt("categoryId"));
             product.setProductName(resultSet.getString("productName"));
@@ -174,9 +174,9 @@ public class ProductDao implements IProductDao {
         PreparedStatement pt = con.prepareStatement(sql);
         pt.setInt(1, productId);
         ResultSet resultSet = pt.executeQuery();
-        List<Product> productList = null;
-        Product product = null;
+        List<Product> productList = new ArrayList<>();
         while (resultSet.next()) {
+            Product product = new Product();
             product.setProductId(resultSet.getInt("productId"));
             product.setCategoryId(resultSet.getInt("categoryId"));
             product.setProductName(resultSet.getString("productName"));

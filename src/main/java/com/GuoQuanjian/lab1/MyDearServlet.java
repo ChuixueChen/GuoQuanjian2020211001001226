@@ -19,7 +19,7 @@ public class MyDearServlet extends HttpServlet {
         while (parameterNameList.hasMoreElements()) {
             String parameterName =  parameterNameList.nextElement();
             String parameterValue = request.getParameter(parameterName);
-            writer.println("<div>"+parameterName+"："+parameterValue+"</div>");
+            writer.println("<div>"+parameterName+":"+parameterValue+"</div>");
         }
         writer.println("</body>");
         writer.println("</html>");
