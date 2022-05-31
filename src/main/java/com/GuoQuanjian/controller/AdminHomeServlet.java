@@ -7,8 +7,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "AdminUserServlet", value = {"/admin/home"})
-public class AdminUserServlet extends HttpServlet {
+@WebServlet("/admin/home")
+public class AdminHomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);//若存在会话则返回该会话，否则返回NULL，不会创建新的session

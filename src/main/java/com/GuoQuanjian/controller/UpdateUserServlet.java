@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,16 +28,16 @@ public class UpdateUserServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         connection = (Connection) getServletContext().getAttribute("connection");
-        System.out.println(connection);
     }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("WEB-INF/views/updateUser.jsp").forward(req,resp);
+        req.getRequestDispatcher("WEB-INF/views/updateUser.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id=req.getParameter("id");
+        String id = req.getParameter("id");
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String email = req.getParameter("Email");
@@ -56,10 +57,13 @@ public class UpdateUserServlet extends HttpServlet {
         }
         IUserDao userDao = new UserDao();
         try {
-            userDao.updateUser(connection, user);
+            int n = userDao.updateUser(connection, user);
+            User updateUser = userDao.findById(connection, Integer.valueOf(id));
+            HttpSession session = req.getSession();
+            session.setAttribute("user", updateUser);
+            req.getRequestDispatcher("accountDetails").forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        req.getRequestDispatcher("accountDetails").forward(req,resp);
     }
 }

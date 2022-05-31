@@ -52,7 +52,7 @@
 								<p>${c.product.price}</p>
 							</td>
 							<td class="cart_price">
-								<p>${c.product.quantity}</p>
+								<p>${c.quantity}</p>
 								
 							</td>
 							<td class="cart_total">
@@ -73,7 +73,7 @@
 			</div>
 		</div>
 	</section> <!--/#cart_items-->
-
+<c:if test="${!(empty cart)}">
 	<section id="do_action">
 		<div class="container">
 			
@@ -94,7 +94,7 @@
 			</div>
 		</div>
 	</section><!--/#do_action-->
-
+</c:if>
 	
 
 <%@include file="footer.jsp" %>

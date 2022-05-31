@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "CartServlet", value = "/cart")
+@WebServlet("/cart")
 public class CartServlet extends HttpServlet {
     Connection con = null;
 
@@ -46,29 +46,29 @@ public class CartServlet extends HttpServlet {
     }
 
     private void displayCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("message","Your Cart");
-        String path="/WEB-INF/views/cart.jsp";
-        request.getRequestDispatcher(path).forward(request,response);
+        request.setAttribute("message", "Your Cart");
+        String path = "/WEB-INF/views/cart.jsp";
+        request.getRequestDispatcher(path).forward(request, response);
     }
 
     private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //remove item from product
-        List<Item> cart= (List<Item>) request.getSession().getAttribute("cart");
-        int id=0;
-        if (request.getParameter("productId")!=null){
-            id=Integer.parseInt(request.getParameter("productId"));
+        List<Item> cart = (List<Item>) request.getSession().getAttribute("cart");
+        int id = 0;
+        if (request.getParameter("productId") != null) {
+            id = Integer.parseInt(request.getParameter("productId"));
         }
-        int index = isExisting(id,cart);
+        int index = isExisting(id, cart);
         cart.remove(index);
-        request.getSession().setAttribute("cart",cart);
-        String path=request.getContextPath()+"/cart";
+        request.getSession().setAttribute("cart", cart);
+        String path = request.getContextPath() + "/cart";
         response.sendRedirect(path);
     }
 
-    private void buy(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    private void buy(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         HttpSession session = request.getSession();
         int id = request.getParameter("productId") != null ? Integer.parseInt(request.getParameter("productId")) : 0;
-        int quantity = request.getParameter("quantity") != null ? Integer.parseInt(request.getParameter("quantity")) : 0;
+        int quantity = request.getParameter("quantity") != null ? Integer.parseInt(request.getParameter("quantity")) : 1;
         if (id == 0 || quantity == 0) {
             return;
         }
@@ -94,12 +94,13 @@ public class CartServlet extends HttpServlet {
             }
             session.setAttribute("cart", cart);
         }
+        response.sendRedirect(request.getContextPath() + "/cart");
     }
 
     private int isExisting(int id, List<Item> cart) {
         for (int i = 0; i < cart.size(); i++) {
             if (cart.get(i).getProduct().getProductId() == id) {
-                return 1;
+                return i;
             }
         }
         return -1;

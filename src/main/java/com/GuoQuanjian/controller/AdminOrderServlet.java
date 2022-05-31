@@ -1,7 +1,8 @@
 package com.GuoQuanjian.controller;
 
 import com.GuoQuanjian.dao.OrderDao;
-import com.GuoQuanjian.model.Item;
+import com.GuoQuanjian.model.Order;
+import com.GuoQuanjian.model.Payment;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -10,8 +11,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
 
-@WebServlet("/orderDetails")
-public class OrderDetailsServlet extends HttpServlet {
+@WebServlet("/admin/orderList")
+public class AdminOrderServlet extends HttpServlet {
     private Connection con = null;
 
     @Override
@@ -21,13 +22,12 @@ public class OrderDetailsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int orderId = request.getParameter("orderId") != null ?
-                Integer.parseInt(request.getParameter("orderId")) : 0;
-        Item item = new Item();
+        List<Payment> paymentTypeList = Payment.findAllPayment(con);
+        request.setAttribute("paymentTypeList", paymentTypeList);
         OrderDao orderDao = new OrderDao();
-        List<Item> items = orderDao.findItemsByOrderId(con, orderId);
-        request.setAttribute("itemList", items);
-        String path = "orderDetails.jsp";
+        List<Order> orderList = orderDao.findAll(con);
+        request.setAttribute("orderList", orderList);
+        String path = "/WEB-INF/views/admin/orderList.jsp";
         request.getRequestDispatcher(path).forward(request, response);
     }
 

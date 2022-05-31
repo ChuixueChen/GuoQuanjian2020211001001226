@@ -28,10 +28,19 @@
         <param-name>password</param-name>
         <param-value>123456</param-value>
     </context-param>
+<!--   <filter>-->
+<!--        <filter-name>GuoQuanjianFilter</filter-name>-->
+<!--        <filter-class>com.GuoQuanjian.lab2.GuoQuanjianFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>GuoQuanjianFilter</filter-name>-->
+<!--        <url-pattern>/lab2/welcome.jsp</url-pattern>-->
+<!--    </filter-mapping>-->
     <welcome-file-list>
         <!--when app is running -first request send to this-->
         <welcome-file>home</welcome-file>
     </welcome-file-list>
+
     <!--   <servlet>
            <servlet-name>RegisterServlet</servlet-name>
            <servlet-class>com.example.week3.servlet.RegisterServlet</servlet-class>

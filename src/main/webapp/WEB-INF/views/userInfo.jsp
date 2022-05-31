@@ -6,18 +6,18 @@
 </head>
 <body>
 
-<%@include file="header.jsp"%>}
+<%@include file="header.jsp"%>
 
 
     <h1>User Info</h1>
-<%
+<%--<%
     Cookie[] allCookies = request.getCookies();
     for (int i = 0; i < allCookies.length; i++) {
         for (Cookie cookie : allCookies) {
             out.println("<br/>"+cookie.getName()+"===>"+cookie.getValue());
         }
     }
-%>
+%>--%>
 <%
     User user= (User) session.getAttribute("user");
 %>
