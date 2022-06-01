@@ -1,7 +1,6 @@
-package com.GuoQuanjian.lab2;
+package com.lab2;
 
 import javax.servlet.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
 
 public class GuoQuanjianFilter implements Filter {

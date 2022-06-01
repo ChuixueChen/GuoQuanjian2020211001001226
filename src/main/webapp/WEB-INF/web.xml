@@ -30,7 +30,7 @@
     </context-param>
 <!--   <filter>-->
 <!--        <filter-name>GuoQuanjianFilter</filter-name>-->
-<!--        <filter-class>com.GuoQuanjian.lab2.GuoQuanjianFilter</filter-class>-->
+<!--        <filter-class>com.lab2.GuoQuanjianFilter</filter-class>-->
 <!--    </filter>-->
 <!--    <filter-mapping>-->
 <!--        <filter-name>GuoQuanjianFilter</filter-name>-->
@@ -52,7 +52,7 @@
 
     <!--   <servlet>
             <servlet-name>MyDearServlet</servlet-name>
-            <servlet-class>com.GuoQuanjian.lab1.MyDearServlet</servlet-class>
+            <servlet-class>com.lab1.MyDearServlet</servlet-class>
             <init-param>
                 <param-name>name</param-name>
                 <param-value>GuoQuanjian</param-value>

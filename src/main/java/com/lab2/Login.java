@@ -1,4 +1,4 @@
-package com.GuoQuanjian.lab2;
+package com.lab2;
 
 public class Login {
     private String username;

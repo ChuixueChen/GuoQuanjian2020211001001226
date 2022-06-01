@@ -1,4 +1,4 @@
-package com.GuoQuanjian.lab1;
+package com.lab1;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
